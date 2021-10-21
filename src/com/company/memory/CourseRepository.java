@@ -9,7 +9,7 @@ import com.company.model.RegistrationSystem;
 public class CourseRepository extends InMemoryRepository<Course>{
 
     /*Instance of regSys*/
-    RegistrationSystem regSys;
+    RegistrationSystem regSys = new RegistrationSystem();
 
     public CourseRepository()
     {
@@ -37,9 +37,10 @@ public class CourseRepository extends InMemoryRepository<Course>{
         courseToUpdate.setStudentsEnrolled(obj.getStudentsEnrolled());
 
         /*When the credits are updated, the students credits
-        also should be update. Therefore we are using regSys
+        also should be updated. Therefore, we are using regSys
          */
         regSys.updateCredits(courseToUpdate.getCredits(), obj.getCredits(), courseToUpdate);
+
         courseToUpdate.setCredits(obj.getCredits());
 
         return courseToUpdate;

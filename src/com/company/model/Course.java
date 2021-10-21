@@ -19,6 +19,7 @@ public class Course {
                     List<Student> studentsEnrolled, int credits) {
         this.name = name;
         this.teacher = teacher;
+
         this.maxEnrollment = maxEnrollment;
         this.studentsEnrolled = studentsEnrolled;
         this.credits = credits;

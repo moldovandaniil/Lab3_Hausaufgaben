@@ -10,7 +10,7 @@ import com.company.model.RegistrationSystem;
  * Repository to control the Professor class
  */
 public class TeacherRepository extends InMemoryRepository<Teacher>{
-    RegistrationSystem regSys;
+    RegistrationSystem regSys = new RegistrationSystem();
 
     public TeacherRepository()
     {
@@ -31,6 +31,10 @@ public class TeacherRepository extends InMemoryRepository<Teacher>{
                 .orElseThrow();
 
         /*Update the new values*/
+
+        if(obj.getCourses().size() == 0){
+            regSys.removeStudents(teacherToUpdate.getCourses().get(0));
+        }
         teacherToUpdate.setCourses(obj.getCourses());
 
         return teacherToUpdate;

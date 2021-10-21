@@ -37,4 +37,9 @@ public class Teacher extends Person{
     {
         courses.remove(course);
     }
+
+    public void addCourse(Course course)
+    {
+        courses.add(course);
+    }
 }

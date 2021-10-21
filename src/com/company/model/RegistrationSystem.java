@@ -98,7 +98,16 @@ public class RegistrationSystem {
             return false;
         }
 
+        /* Check if the student is already enrolled */
+        for(Student s:course.getStudentsEnrolled()){
+            if(s.getStudentId() == student.getStudentId()){
+                System.out.println("STUDENT ALREADY ENROLLED!");
+                return false;
+            }
+        }
+
         course.addStudent(student);
+        student.addCredits(course.getCredits());
 
         return true;
     }
@@ -161,7 +170,9 @@ public class RegistrationSystem {
         for(Student student: modifiedCourse.getStudentsEnrolled()){
             student.addCredits(-oldCredits);
             student.addCredits(newCredits);
+
         }
+
     }
 
     /**
