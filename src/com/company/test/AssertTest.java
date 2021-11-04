@@ -1,4 +1,4 @@
-package com.company;
+package com.company.test;
 
 /**
  * Importing junit for assert tests
